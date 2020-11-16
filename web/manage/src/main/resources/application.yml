@@ -1,0 +1,14 @@
+server:
+  port: 8030
+  servlet:
+    context-path: /manage
+    encoding:
+      force-response: true
+logging:
+  level:
+    root: info
+  file:
+    path: log/store
+spring:
+  profiles:
+    active: develop
