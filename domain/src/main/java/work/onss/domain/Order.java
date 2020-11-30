@@ -2,7 +2,9 @@ package work.onss.domain;
 
 import lombok.Data;
 import work.onss.enums.OrderStatusEnum;
+import work.onss.enums.OrderTypeEnum;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -23,4 +25,28 @@ public class Order {
      * 订单状态
      */
     private OrderStatusEnum status;
+    /**
+     * 订单开工时间
+     */
+    private LocalDateTime startDateTime;
+    /**
+     * 订单完工时间
+     */
+    private LocalDateTime endDateTime;
+    /**
+     * 订单交付时间
+     */
+    private LocalDateTime deliveryDateTime;
+    /**
+     * 订单创建时间
+     */
+    private LocalDateTime insertDateTime;
+    /**
+     * 订单更新时间
+     */
+    private LocalDateTime updateDateTime;
+    /**
+     * 订单类型
+     */
+    private OrderTypeEnum type;
 }
