@@ -62,5 +62,5 @@ public class Merchant {
     /**
      * 联系邮箱
      */
-    private String contactmail;
+    private String contactEmail;
 }

@@ -9,7 +9,6 @@ import java.math.BigDecimal;
  */
 @Data
 public class InventoryRecord {
-
     /**
      * 库存记录ID
      */
@@ -70,6 +69,4 @@ public class InventoryRecord {
      * 退货数量
      */
     private BigDecimal returnCount;
-
-
 }
