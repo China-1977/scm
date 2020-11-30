@@ -49,7 +49,7 @@ public class InventoryRecord {
     /**
      * 退货数量
      */
-    private BigDecimal rejectedCount;
+    private BigDecimal returnCount;
 
 
 }

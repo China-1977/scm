@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 import work.onss.vo.Work;
 
 /**
+ * 基础请求
+ *
  * @author wangchanghao
  */
 @RestController
