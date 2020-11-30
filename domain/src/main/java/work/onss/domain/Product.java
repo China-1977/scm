@@ -2,6 +2,9 @@ package work.onss.domain;
 
 import lombok.Data;
 
+/**
+ * 产品
+ */
 @Data
 public class Product {
     private String id;// 产品主键
