@@ -3,51 +3,46 @@ package work.onss.domain;
 import lombok.Data;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 /**
- * 产品
+ * 原料
  */
 @Data
-public class Product {
+public class Material {
     /**
-     * 产品ID
+     * 原料ID
      */
     private String id;
     /**
-     * 产品名称
+     * 原料名称
      */
     private String name;
     /**
-     * 产品编号
+     * 原料编号
      */
     private String number;
     /**
-     * 产品质量
+     * 原料质量
      */
     private BigDecimal weight;
     /**
-     * 产品单价
+     * 原料单价
      */
     private BigDecimal price;
     /**
-     * 产品损耗
+     * 原料损耗
      */
     private BigDecimal loss;
     /**
-     * 产品69码
+     * 原料69码
      */
     private String barcode;
     /**
-     * 产品国家
+     * 原料国家
      */
     private String country;
     /**
-     * 产品分类
+     * 原料分类
      */
     private Category category;
-    /**
-     * 产品子集
-     */
-    private List<Product> children;
 }

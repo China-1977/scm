@@ -12,6 +12,9 @@ import java.util.List;
  */
 @Data
 public class Order {
+    /**
+     * 订单ID
+     */
     private String id;
     /**
      * 订单商户
