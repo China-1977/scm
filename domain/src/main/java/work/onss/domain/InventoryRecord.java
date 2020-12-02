@@ -5,7 +5,8 @@ import lombok.Data;
 import java.math.BigDecimal;
 
 /**
- * 库存记录
+ * 库存记录：订单交付出入库、销售出入库、调拨出入库、盘点出入库、其它出入库
+ *
  */
 @Data
 public class InventoryRecord {
@@ -69,4 +70,16 @@ public class InventoryRecord {
      * 退货数量
      */
     private BigDecimal returnCount;
+    /**
+     * 单价
+     */
+    private BigDecimal price;
+    /**
+     * 运费
+     */
+    private BigDecimal freight;
+    /**
+     *  加工费
+     */
+    private BigDecimal processCost;
 }

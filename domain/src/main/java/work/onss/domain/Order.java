@@ -52,4 +52,8 @@ public class Order {
      * 订单类型
      */
     private OrderTypeEnum type;
+    /**
+     * 物流记录
+     */
+    private List<Logistic> logistics;
 }
