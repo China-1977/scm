@@ -2,11 +2,13 @@ package work.onss.domain;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * 分类
  */
 @Data
-public class Category {
+public class Category implements Serializable {
     /**
      * 分类ID
      */

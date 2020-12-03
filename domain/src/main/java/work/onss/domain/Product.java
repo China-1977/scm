@@ -2,6 +2,7 @@ package work.onss.domain;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -9,7 +10,7 @@ import java.util.List;
  * 产品
  */
 @Data
-public class Product {
+public class Product implements Serializable {
     /**
      * 产品ID
      */
@@ -54,4 +55,17 @@ public class Product {
      * 产品子集
      */
     private List<Product> children;
+    /**
+     * 计划数量
+     */
+    private BigDecimal count;
+    /**
+     * 计划待入库订单数量
+     */
+    private BigDecimal orderCount;
+    /**
+     * 计划已入库数量
+     */
+    private BigDecimal inCount;
+
 }

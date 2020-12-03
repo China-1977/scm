@@ -4,6 +4,7 @@ import lombok.Data;
 import work.onss.enums.OrderStatusEnum;
 import work.onss.enums.OrderTypeEnum;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -11,7 +12,7 @@ import java.util.List;
  * 订单
  */
 @Data
-public class Score {
+public class Score implements Serializable {
     /**
      * 订单ID
      */

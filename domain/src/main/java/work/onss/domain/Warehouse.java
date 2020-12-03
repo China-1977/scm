@@ -6,12 +6,13 @@ import org.springframework.data.mongodb.core.index.GeoSpatialIndexType;
 import org.springframework.data.mongodb.core.index.GeoSpatialIndexed;
 
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
 /**
  * 仓库
  */
 @Data
-public class Warehouse {
+public class Warehouse implements Serializable {
 
     /**
      * 仓库ID

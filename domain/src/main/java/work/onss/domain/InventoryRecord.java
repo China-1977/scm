@@ -2,6 +2,7 @@ package work.onss.domain;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
@@ -9,7 +10,7 @@ import java.math.BigDecimal;
  *
  */
 @Data
-public class InventoryRecord {
+public class InventoryRecord implements Serializable {
     /**
      * 库存记录ID
      */

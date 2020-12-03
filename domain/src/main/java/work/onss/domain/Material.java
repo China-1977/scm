@@ -2,13 +2,14 @@ package work.onss.domain;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
  * 原料
  */
 @Data
-public class Material {
+public class Material implements Serializable {
     /**
      * 原料ID
      */

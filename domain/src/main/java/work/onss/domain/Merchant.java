@@ -2,13 +2,14 @@ package work.onss.domain;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * 商户
  */
 @Data
-public class Merchant {
+public class Merchant implements Serializable {
     /**
      * 商户ID
      */
