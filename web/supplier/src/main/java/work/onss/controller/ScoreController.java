@@ -33,7 +33,7 @@ public class ScoreController {
      */
     @GetMapping(value = {"scores/{id}"})
     public Work<Score> score(@PathVariable String id, @RequestParam(name = "mid") String mid) {
-        Query query = Query.query(Criteria.where("id").is(id).and("mdi").is(mid));
+        Query query = Query.query(Criteria.where("id").is(id).and("mid").is(mid));
         Score score = mongoTemplate.findOne(query, Score.class);
         return Work.success("加载成功", score);
     }
