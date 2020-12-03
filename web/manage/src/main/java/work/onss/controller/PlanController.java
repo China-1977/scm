@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import work.onss.domain.Plan;
-import work.onss.domain.Product;
 import work.onss.vo.Work;
 
 import java.util.List;
