@@ -45,7 +45,7 @@ public class ScoreController {
      */
     @GetMapping(value = {"scores"})
     public Work<List<Score>> scores(@RequestParam(name = "mid") String mid, @RequestParam(name = "status") List<OrderStatusEnum> status) {
-        Query query = Query.query(Criteria.where("mid").is(mid).and("status").in(status));
+        Query query = Query.query(Criteria.where("mid").is(mid));
         List<Score> scores = mongoTemplate.find(query, Score.class);
         return Work.success("加载成功", scores);
     }

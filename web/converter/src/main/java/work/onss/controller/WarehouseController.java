@@ -10,44 +10,43 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import work.onss.domain.Score;
-import work.onss.enums.OrderStatusEnum;
+import work.onss.domain.Warehouse;
 import work.onss.vo.Work;
 
 import java.util.List;
 
 /**
- * 订单管理
+ * 仓库管理
  *
  * @author wangchanghao
  */
 @Log4j2
 @RestController
-public class ScoreController {
+public class WarehouseController {
 
     @Autowired
     private MongoTemplate mongoTemplate;
 
     /**
-     * @param id  订单ID
+     * @param id  仓库ID
      * @param mid 商户ID
-     * @return 订单详情
+     * @return 仓库详情
      */
-    @GetMapping(value = {"scores/{id}"})
-    public Work<Score> scores(@PathVariable String id, @RequestParam(name = "mid") String mid) {
+    @GetMapping(value = {"warehouses/{id}"})
+    public Work<Warehouse> warehouses(@PathVariable String id, @RequestParam(name = "mid") String mid) {
         Query query = Query.query(Criteria.where("id").is(id).and("mid").is(mid));
-        Score score = mongoTemplate.findOne(query, Score.class);
-        return Work.success("加载成功", score);
+        Warehouse warehouse = mongoTemplate.findOne(query, Warehouse.class);
+        return Work.success("加载成功", warehouse);
     }
 
     /**
      * @param mid 商户ID
-     * @return 订单列表
+     * @return 仓库列表
      */
-    @GetMapping(value = {"scores"})
-    public Work<List<Score>> scores(@RequestParam(name = "mid") String mid, @RequestParam(name = "status") List<OrderStatusEnum> status) {
-        Query query = Query.query(Criteria.where("mid").is(mid).and("status").in(status));
+    @GetMapping(value = {"warehouses"})
+    public Work<List<Score>> warehouses(@RequestParam(name = "mid") String mid) {
+        Query query = Query.query(Criteria.where("mid").is(mid));
         List<Score> scores = mongoTemplate.find(query, Score.class);
         return Work.success("加载成功", scores);
     }
-
 }

@@ -33,9 +33,8 @@ public class ScoreController {
      * @return 订单详情
      */
     @GetMapping(value = {"scores/{id}"})
-    public Work<Score> scores(@PathVariable String id, @RequestParam(name = "mid") String mid) {
-        Query query = Query.query(Criteria.where("id").is(id).and("mid").is(mid));
-        Score score = mongoTemplate.findOne(query, Score.class);
+    public Work<Score> scores(@PathVariable String id) {
+        Score score = mongoTemplate.findById(id, Score.class);
         return Work.success("加载成功", score);
     }
 
@@ -44,8 +43,8 @@ public class ScoreController {
      * @return 订单列表
      */
     @GetMapping(value = {"scores"})
-    public Work<List<Score>> scores(@RequestParam(name = "mid") String mid, @RequestParam(name = "status") List<OrderStatusEnum> status) {
-        Query query = Query.query(Criteria.where("mid").is(mid).and("status").in(status));
+    public Work<List<Score>> scores( @RequestParam(name = "status") List<OrderStatusEnum> status) {
+        Query query = Query.query(Criteria.where("status").in(status));
         List<Score> scores = mongoTemplate.find(query, Score.class);
         return Work.success("加载成功", scores);
     }
