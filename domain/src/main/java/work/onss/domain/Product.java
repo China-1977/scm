@@ -15,6 +15,10 @@ public class Product {
      */
     private String id;
     /**
+     * 合同编号
+     */
+    private String contractCode;
+    /**
      * 产品名称
      */
     private String name;
