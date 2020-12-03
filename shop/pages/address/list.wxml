@@ -1,0 +1,18 @@
+<view class="weui-cells__title">
+	常用地址 
+	<navigator url="/pages/address/detail" class="fr"><button size='mini' style="font-size:28rpx">+</button></navigator>
+</view>
+<view class="weui-panel">
+	<radio-group class="radio-group" bindchange="changeAddress">
+		<view wx:for="{{addresses}}" wx:for-item='address' wx:key="index" class="weui-media-box weui-media-box_appmsg">
+			<view class="weui-media-box__hd_in-appmsg">
+				<radio value="{{index}}" />
+			</view>
+			<navigator url="/pages/address/detail?index={{index}}"
+				class="weui-media-box__bd weui-media-box__bd_in-appmsg weui-cell__ft_in-access">
+				<view class="weui-media-box__title">{{address.username}} {{address.phone}}</view>
+				<view class="weui-media-box__desc">{{address.detail}}</view>
+			</navigator>
+		</view>
+	</radio-group>
+</view>

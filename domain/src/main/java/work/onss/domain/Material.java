@@ -30,10 +30,6 @@ public class Material {
      */
     private BigDecimal price;
     /**
-     * 原料损耗
-     */
-    private BigDecimal loss;
-    /**
      * 原料69码
      */
     private String barcode;
