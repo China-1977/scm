@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import work.onss.domain.Score;
+import work.onss.enums.OrderStatusEnum;
 import work.onss.vo.Work;
 
 import java.util.List;
@@ -43,7 +44,7 @@ public class ScoreController {
      * @return 订单列表
      */
     @GetMapping(value = {"scores"})
-    public Work<List<Score>> score(@RequestParam(name = "mid") String mid) {
+    public Work<List<Score>> score(@RequestParam(name = "mid") String mid, @RequestParam(name = "status") List<OrderStatusEnum> status) {
         Query query = Query.query(Criteria.where("mid").is(mid));
         List<Score> scores = mongoTemplate.find(query, Score.class);
         return Work.success("加载成功", scores);

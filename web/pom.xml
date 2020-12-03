@@ -21,7 +21,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>work.onss</groupId>
+            <groupId>work.onss.scm</groupId>
             <artifactId>domain</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
