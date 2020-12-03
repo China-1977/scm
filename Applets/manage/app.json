@@ -1,9 +1,10 @@
 {
   "pages": [
+    "pages/plan/list",
+    "pages/plan/detail",
     "pages/store/store",
     "pages/store/list",
     "pages/store/detail"
-   
   ],
   "window": {
     "backgroundTextStyle": "light",

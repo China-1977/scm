@@ -1,0 +1,58 @@
+<form>
+	<view class="weui-cells__title">
+		<view class="weui-flex">
+			<icon class="weui-flex__item">
+				<button size='mini' style="font-size:28rpx" form-type="reset">重置</button>
+			</icon>
+			<icon type="success" bindtap="up">
+				<button size='mini' style="font-size:28rpx" form-type="reset">上架</button>
+			</icon>
+			<icon type="cancel" bindtap="lower">
+				<button size='mini' style="font-size:28rpx" form-type="reset">下架</button>
+			</icon>
+			<icon type="clear" bindtap="delete">
+				<button size='mini' style="font-size:28rpx" form-type="reset">删除</button>
+			</icon>
+
+			<navigator class="weui-flex__item weui-cell__ft" url="/pages/plan/create">
+				<button size='mini' style="font-size:28rpx" bindtap='createPlan'>+</button>
+			</navigator>
+		</view>
+	</view>
+	<view class="weui-panel">
+		<checkbox-group bindchange='checkboxChange' id="ids">
+			<block wx:for="{{plans}}" wx:for-item='plan' wx:key='index'>
+				<mp-slideview buttons="{{[slideButtons[plan.status]]}}" id="{{index}}" show="{{index==currentID}}"
+					bindshow="bindShow" bindbuttontap="bindButtonTap">
+					<view class="weui-media-box">
+						<navigator class="weui-media-box_appmsg" url="/pages/plan/detail?id={{plan.id}}&index={{index}}">
+							<view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+								<view class="weui-badge">{{plan.stock}}</view>
+								<image class="weui-media-box__thumb" src="{{prefix}}{{plan.pictures[0]}}" />
+							</view>
+							<view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+								<view class="weui-media-box__title">{{plan.name}}</view>
+								<view class="weui-media-box__desc">{{plan.description}}</view>
+							</view>
+							<view class="weui-media-box__ft">
+								<icon type="{{plan.status?'success':'clear'}}" id="{{index}}" size="16" hover-stop-propagation='true'
+									catchtap="{{plan.status?'':'deletePlan'}}"></icon>
+							</view>
+						</navigator>
+						<view class="weui-flex">
+							<label class="checkbox">
+								<checkbox value='{{plan.id}}' />
+							</label>
+							<view class="weui-flex__item weui-cell__ft">
+								<block wx:if="{{plan.quality}}">
+									均价:<label class="weui-cell_warn">{{plan.average}}{{plan.averageUnit}}</label>
+								</block>
+								单价:<label class="weui-cell_warn">{{plan.price}}{{plan.priceUnit}}</label>
+							</view>
+						</view>
+					</view>
+				</mp-slideview>
+			</block>
+		</checkbox-group>
+	</view>
+</form>
