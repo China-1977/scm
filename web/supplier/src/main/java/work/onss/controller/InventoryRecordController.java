@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import work.onss.domain.InventoryRecord;
-import work.onss.domain.Score;
-import work.onss.domain.Warehouse;
 import work.onss.vo.Work;
 
 import java.util.List;
