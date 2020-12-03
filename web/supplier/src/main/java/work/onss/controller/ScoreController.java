@@ -40,10 +40,10 @@ public class ScoreController {
 
     /**
      * @param mid 商户ID
-     * @return 订单详情
+     * @return 订单列表
      */
     @GetMapping(value = {"scores"})
-    public Work<List<Score>> score( @RequestParam(name = "mid") String mid) {
+    public Work<List<Score>> score(@RequestParam(name = "mid") String mid) {
         Query query = Query.query(Criteria.where("mid").is(mid));
         List<Score> scores = mongoTemplate.find(query, Score.class);
         return Work.success("加载成功", scores);
