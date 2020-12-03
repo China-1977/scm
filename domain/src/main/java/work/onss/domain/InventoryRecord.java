@@ -9,7 +9,7 @@ import java.math.BigDecimal;
  *
  */
 @Data
-public class Inventory {
+public class InventoryRecord {
     /**
      * 库存记录ID
      */
