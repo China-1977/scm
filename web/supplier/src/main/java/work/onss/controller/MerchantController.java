@@ -23,7 +23,7 @@ public class MerchantController {
 
     /**
      * @param id 商户ID
-     * @return 订单详情
+     * @return 商户详情
      */
     @GetMapping(value = {"merchants/{id}"})
     public Work<Merchant> merchants(@PathVariable String id) {
