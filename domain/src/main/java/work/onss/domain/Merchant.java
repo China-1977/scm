@@ -2,6 +2,8 @@ package work.onss.domain;
 
 import lombok.Data;
 
+import java.util.List;
+
 /**
  * 商户
  */
@@ -63,4 +65,8 @@ public class Merchant {
      * 联系邮箱
      */
     private String contactEmail;
+    /**
+     * 企业微信USERID
+     */
+    List<String> userid;
 }

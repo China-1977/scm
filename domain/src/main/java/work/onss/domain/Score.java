@@ -11,7 +11,7 @@ import java.util.List;
  * 订单
  */
 @Data
-public class Order {
+public class Score {
     /**
      * 订单ID
      */
