@@ -26,7 +26,7 @@ public class MerchantController {
      * @return 订单详情
      */
     @GetMapping(value = {"merchants/{id}"})
-    public Work<Merchant> score(@PathVariable String id) {
+    public Work<Merchant> merchants(@PathVariable String id) {
         Merchant merchant = mongoTemplate.findById(id, Merchant.class);
         return Work.success("加载成功", merchant);
     }

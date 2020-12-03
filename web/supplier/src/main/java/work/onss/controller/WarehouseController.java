@@ -33,7 +33,7 @@ public class WarehouseController {
      * @return 仓库详情
      */
     @GetMapping(value = {"warehouses/{id}"})
-    public Work<Warehouse> score(@PathVariable String id, @RequestParam(name = "mid") String mid) {
+    public Work<Warehouse> warehouses(@PathVariable String id, @RequestParam(name = "mid") String mid) {
         Query query = Query.query(Criteria.where("id").is(id).and("mid").is(mid));
         Warehouse warehouse = mongoTemplate.findOne(query, Warehouse.class);
         return Work.success("加载成功", warehouse);
@@ -44,7 +44,7 @@ public class WarehouseController {
      * @return 仓库列表
      */
     @GetMapping(value = {"warehouses"})
-    public Work<List<Score>> score(@RequestParam(name = "mid") String mid) {
+    public Work<List<Score>> warehouses(@RequestParam(name = "mid") String mid) {
         Query query = Query.query(Criteria.where("mid").is(mid));
         List<Score> scores = mongoTemplate.find(query, Score.class);
         return Work.success("加载成功", scores);

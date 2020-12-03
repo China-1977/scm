@@ -32,7 +32,7 @@ public class InventoryRecordController {
      * @return 仓库记录详情
      */
     @GetMapping(value = {"inventoryRecords/{id}"})
-    public Work<InventoryRecord> inventoryRecord(@PathVariable String id, @RequestParam(name = "mid") String mid) {
+    public Work<InventoryRecord> inventoryRecords(@PathVariable String id, @RequestParam(name = "mid") String mid) {
         Query query = Query.query(Criteria.where("id").is(id).and("mid").is(mid));
         InventoryRecord inventoryRecord = mongoTemplate.findOne(query, InventoryRecord.class);
         return Work.success("加载成功", inventoryRecord);
@@ -43,7 +43,7 @@ public class InventoryRecordController {
      * @return 仓库记录列表
      */
     @GetMapping(value = {"inventoryRecords"})
-    public Work<List<InventoryRecord>> inventoryRecord(@RequestParam(name = "mid") String mid) {
+    public Work<List<InventoryRecord>> inventoryRecords(@RequestParam(name = "mid") String mid) {
         Query query = Query.query(Criteria.where("mid").is(mid));
         List<InventoryRecord> inventoryRecords = mongoTemplate.find(query, InventoryRecord.class);
         return Work.success("加载成功", inventoryRecords);
