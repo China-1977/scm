@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import work.onss.domain.InventoryRecord;
+import work.onss.domain.Inventory;
 import work.onss.vo.Work;
 
 import java.util.List;
@@ -21,7 +21,7 @@ import java.util.List;
  */
 @Log4j2
 @RestController
-public class InventoryRecordController {
+public class InventoryController {
 
     @Autowired
     private MongoTemplate mongoTemplate;
@@ -31,10 +31,10 @@ public class InventoryRecordController {
      * @param mid 商户ID
      * @return 仓库记录详情
      */
-    @GetMapping(value = {"inventoryRecords/{id}"})
-    public Work<InventoryRecord> inventoryRecords(@PathVariable String id, @RequestParam(name = "mid") String mid) {
+    @GetMapping(value = {"inventories/{id}"})
+    public Work<Inventory> inventories(@PathVariable String id, @RequestParam(name = "mid") String mid) {
         Query query = Query.query(Criteria.where("id").is(id).and("mid").is(mid));
-        InventoryRecord inventoryRecord = mongoTemplate.findOne(query, InventoryRecord.class);
+        Inventory inventoryRecord = mongoTemplate.findOne(query, Inventory.class);
         return Work.success("加载成功", inventoryRecord);
     }
 
@@ -42,10 +42,10 @@ public class InventoryRecordController {
      * @param mid 商户ID
      * @return 仓库记录列表
      */
-    @GetMapping(value = {"inventoryRecords"})
-    public Work<List<InventoryRecord>> inventoryRecords(@RequestParam(name = "mid") String mid) {
+    @GetMapping(value = {"inventories"})
+    public Work<List<Inventory>> inventories(@RequestParam(name = "mid") String mid) {
         Query query = Query.query(Criteria.where("mid").is(mid));
-        List<InventoryRecord> inventoryRecords = mongoTemplate.find(query, InventoryRecord.class);
+        List<Inventory> inventoryRecords = mongoTemplate.find(query, Inventory.class);
         return Work.success("加载成功", inventoryRecords);
     }
 }
