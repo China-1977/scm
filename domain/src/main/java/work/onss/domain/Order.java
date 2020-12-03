@@ -17,6 +17,10 @@ public class Order {
      */
     private String id;
     /**
+     * 商户ID
+     */
+    private String mid;
+    /**
      * 订单商户
      */
     private Merchant merchant;

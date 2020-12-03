@@ -15,6 +15,10 @@ public class InventoryRecord {
      */
     private String id;
     /**
+     * 商户ID
+     */
+    private String mid;
+    /**
      * 来源ID
      */
     private String sourceId;
