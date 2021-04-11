@@ -6,18 +6,13 @@
 
     <parent>
         <groupId>work.onss</groupId>
-        <artifactId>scm</artifactId>
+        <artifactId>web</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>web</artifactId>
+    <groupId>work.onss</groupId>
+    <artifactId>merchant</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>pom</packaging>
 
-    <modules>
-        <module>platform</module>
-        <module>merchant</module>
-    </modules>
-
-
+    
 </project>
