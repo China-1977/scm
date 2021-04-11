@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 
-@Table(name="member")
+@Entity(name="member")
 public class Member implements Serializable,Cloneable{
     /** 主键 */
     @Id

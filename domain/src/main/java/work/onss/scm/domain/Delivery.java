@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 
-@Table(name="delivery")
+@Entity(name="delivery")
 public class Delivery implements Serializable,Cloneable{
     /** 主键 */
     @Id

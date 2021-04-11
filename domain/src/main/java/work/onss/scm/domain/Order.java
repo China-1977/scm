@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 
-@Table(name="order")
+@Entity(name="order")
 public class Order implements Serializable,Cloneable{
     /** 主键 */
     @Id

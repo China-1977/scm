@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 
-@Table(name="stock")
+@Entity(name="stock")
 public class Stock implements Serializable,Cloneable{
     /** 主键 */
     @Id
