@@ -1,4 +1,4 @@
-package work.onss.scm;
+package work.onss.scm.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
