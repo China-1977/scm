@@ -1,6 +1,0 @@
-spring:
-  data:
-    mongodb:
-      uri: mongodb://49.232.165.242:27017/scm?replicaSet=onss
-  main:
-    lazy-initialization: true
