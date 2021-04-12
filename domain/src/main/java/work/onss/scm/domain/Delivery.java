@@ -1,9 +1,12 @@
 package work.onss.scm.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 
@@ -33,18 +36,29 @@ public class Delivery implements Serializable,Cloneable{
     /** 产品名称 */
     private String productName ;
     /** 通知数量 */
-    private Double deliveryQuantity ;
+    private BigDecimal deliveryQuantity ;
     /** 签收数量 */
-    private Double signQuantity ;
+    private BigDecimal signQuantity ;
     /** 入库数量 */
-    private Double inQuantity ;
+    private BigDecimal inQuantity ;
     /** 状态;待提交 wait_submit 已提交/接收 wait_cooperate 已接收/进行中 cooperating 已完成 finished 已拒绝 rejected */
-    private String status ;
+    private StatusEnum status ;
     /** 物流编号 */
     private String logisticNo ;
     /** 创建时间 */
     private Date createDatetime ;
     /** 更新时间 */
     private Date updateDatetime ;
+
+    @Getter
+    @AllArgsConstructor
+    public static enum StatusEnum implements Serializable,Cloneable{
+        WAIT_SUBMIT("待提交"),
+        WAIT_COOPERATE("待接收"),
+        COOPERATING("进行中"),
+        FINISHED("已完成"),
+        REJECTED("已拒绝");
+        private final String message;
+    }
 
 }

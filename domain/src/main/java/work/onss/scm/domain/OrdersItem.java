@@ -1,9 +1,12 @@
 package work.onss.scm.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
@@ -28,17 +31,29 @@ public class OrdersItem implements Serializable,Cloneable{
     /** 产品名称 */
     private String productName ;
     /** 产品单价 */
-    private Double productPrice ;
+    private BigDecimal productPrice ;
     /** 类型;采购 purchase、生产 produce、委外 outsource */
     private String type ;
     /** 加工费 */
-    private Double processCost ;
+    private BigDecimal processCost ;
     /** 订单数量 */
-    private Long orderQuantity ;
+    private BigDecimal orderQuantity ;
     /** 已交付数量 */
-    private Long deliveryQuantity ;
+    private BigDecimal deliveryQuantity ;
     /** 状态;准备 read、开始 start、暂停 suspend、完成 finish、停止 stop */
-    private String status ;
+    private StatusEnum status ;
     /** 交付日期 */
     private Date dueDatetime ;
+
+    @Getter
+    @AllArgsConstructor
+    public static enum StatusEnum implements Serializable,Cloneable{
+        READ("准备"),
+        START("开始"),
+        SUSPEND("暂停"),
+        FINISH("完成"),
+        STOP("停止");
+        private final String message;
+    }
+    
 }

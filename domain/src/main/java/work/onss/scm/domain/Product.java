@@ -7,6 +7,7 @@ import org.hibernate.annotations.TypeDef;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Set;
 
 @Data
@@ -28,7 +29,7 @@ public class Product implements Serializable,Cloneable{
     /** 类型 */
     private String type ;
     /** 单价 */
-    private String price ;
+    private BigDecimal price ;
     /** 状态 */
     private boolean status ;
     /** 图片 */

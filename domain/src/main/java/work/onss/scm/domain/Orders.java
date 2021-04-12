@@ -1,6 +1,8 @@
 package work.onss.scm.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -20,10 +22,20 @@ public class Orders implements Serializable,Cloneable{
     /** 签约时间 */
     private Date signDatetime ;
     /** 状态;待提交 wait_submit 已提交/待接收 wait_cooperate 已接收/进行中 cooperating  已完成 finished 已拒绝 rejected */
-    private String status ;
+    private StatusEnum status ;
     /** 更新时间 */
     private Date updateDatetime ;
     /** 创建时间 */
     private Date createDatetime ;
 
+    @Getter
+    @AllArgsConstructor
+    public static enum StatusEnum implements Serializable,Cloneable{
+        WAIT_SUBMIT("待提交"),
+        WAIT_COOPERATE("待接收"),
+        COOPERATING("进行中"),
+        FINISHED("已完成"),
+        REJECTED("已拒绝");
+        private final String message;
+    }
 }

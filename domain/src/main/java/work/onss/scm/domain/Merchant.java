@@ -1,6 +1,8 @@
 package work.onss.scm.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -36,9 +38,20 @@ public class Merchant implements Serializable,Cloneable{
     /** 等级 */
     private Integer grade ;
     /** 状态;编辑中 EDITTING 审核中 AUDITING 已驳回 REJECTED 已完成 FINISHED 已作废 CANCELED */
-    private String status ;
+    private StatusEnum status ;
     /** 创建时间 */
     private Date createDatetime ;
     /** 更新时间 */
     private Date updateDatetime ;
+
+    @Getter
+    @AllArgsConstructor
+    public static enum StatusEnum implements Serializable,Cloneable{
+        EDITTING("编辑中"),
+        AUDITING("审核中"),
+        REJECTED("已驳回"),
+        FINISHED("已完成"),
+        CANCELED("已作废");
+        private final String message;
+    }
 }

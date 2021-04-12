@@ -4,6 +4,8 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigDecimal;
+
 
 @Data
 @Entity(name="stock")
@@ -25,7 +27,7 @@ public class Stock implements Serializable,Cloneable{
     /** 仓库名称 */
     private String warehouseName ;
     /** 库存剩余量 */
-    private Long stockQuantity ;
+    private BigDecimal stockQuantity ;
     /** 批次 */
     private String batch ;
 }

@@ -1,9 +1,12 @@
 package work.onss.scm.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
@@ -28,15 +31,26 @@ public class Plan implements Serializable,Cloneable{
     /** 截止时间 */
     private Date endDate ;
     /** 状态;准备 read、开始 start、暂停 suspend、完成 finish、停止 stop */
-    private String status ;
+    private StatusEnum status ;
     /** 计划数量 */
-    private Long planQuantity ;
+    private BigDecimal planQuantity ;
     /** 已分配数量 */
-    private Long allocatedQuantity ;
+    private BigDecimal allocatedQuantity ;
     /** 已完成数量 */
-    private Long completedQuantity ;
+    private BigDecimal completedQuantity ;
     /** 更新时间 */
     private Date upateDatetime ;
     /** 创建时间 */
     private Date crateDatetime ;
+
+    @Getter
+    @AllArgsConstructor
+    public static enum StatusEnum implements Serializable,Cloneable{
+        READ("准备"),
+        START("开始"),
+        SUSPEND("暂停"),
+        FINISH("完成"),
+        STOP("停止");
+        private final String message;
+    }
 }
