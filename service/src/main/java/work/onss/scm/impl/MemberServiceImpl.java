@@ -1,14 +1,16 @@
 package work.onss.scm.impl;
 
-import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import work.onss.scm.domain.Member;
 import work.onss.scm.domain.MemberRepository;
 import work.onss.scm.service.MemberService;
 
-@AllArgsConstructor
+@Service
 public class MemberServiceImpl implements MemberService {
 
-    private final MemberRepository memberRepository;
+    @Autowired
+    private MemberRepository memberRepository;
 
     @Override
     public void create(Member member) {
