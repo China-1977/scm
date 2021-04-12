@@ -1,0 +1,4 @@
+system:
+  logo: 'picture/logo.png'
+  secret: '3.1415926a?'
+  file-path: home/picture/
