@@ -33,7 +33,7 @@ public class OrdersItem implements Serializable,Cloneable{
     /** 产品单价 */
     private BigDecimal productPrice ;
     /** 类型;采购 purchase、生产 produce、委外 outsource */
-    private String type ;
+    private TypeEnum type ;
     /** 加工费 */
     private BigDecimal processCost ;
     /** 订单数量 */

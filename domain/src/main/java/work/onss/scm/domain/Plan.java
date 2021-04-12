@@ -25,7 +25,7 @@ public class Plan implements Serializable,Cloneable{
     /** 产品名称 */
     private String productName ;
     /** 类型;采购 purchase、生产 produce、委外 outsource */
-    private String type ;
+    private TypeEnum type ;
     /** 开始时间 */
     private Date startDate ;
     /** 截止时间 */
