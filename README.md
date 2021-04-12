@@ -11,3 +11,16 @@
 库存：调拨、交付、销售、其它（研发、报废、盘点）
 流水：单价、数量（入库、出库、在途、当前库存）、仓库、商户、合同、订单、计划、批次、物流费
 发票：合同、订单、商户、公户
+
+```shell
+
+rpm -ev mysql-community-server-8.0.23-1.el8.x86_64 --nodeps
+rpm -ev mysql-community-libs-8.0.23-1.el8.x86_64 --nodeps
+
+yum -y install mysql-community-server
+yum module disable mysql
+systemctl start  mysqld.service
+systemctl status  mysqld.service
+systemctl  enable mysqld.service
+
+```
