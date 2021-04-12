@@ -4,8 +4,8 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 
-@Entity(name="stock")
-public class Stock implements Serializable,Cloneable{
+@Entity(name="stock_change")
+public class StockChange implements Serializable,Cloneable{
     /** 主键 */
     @Id
     @GeneratedValue
@@ -22,8 +22,12 @@ public class Stock implements Serializable,Cloneable{
     private String warehouseId ;
     /** 仓库名称 */
     private String warehouseName ;
-    /** 库存剩余量 */
+    /** 出入库之前的剩余量 */
     private Long stockQuantity ;
+    /** 入库数量 */
+    private Double inQuantity ;
+    /** 出库数量 */
+    private Double outQuantity ;
     /** 批次 */
     private String batch ;
 
@@ -83,13 +87,29 @@ public class Stock implements Serializable,Cloneable{
     public void setWarehouseName(String warehouseName){
         this.warehouseName = warehouseName;
     }
-    /** 库存剩余量 */
+    /** 出入库之前的剩余量 */
     public Long getStockQuantity(){
         return this.stockQuantity;
     }
-    /** 库存剩余量 */
+    /** 出入库之前的剩余量 */
     public void setStockQuantity(Long stockQuantity){
         this.stockQuantity = stockQuantity;
+    }
+    /** 入库数量 */
+    public Double getInQuantity(){
+        return this.inQuantity;
+    }
+    /** 入库数量 */
+    public void setInQuantity(Double inQuantity){
+        this.inQuantity = inQuantity;
+    }
+    /** 出库数量 */
+    public Double getOutQuantity(){
+        return this.outQuantity;
+    }
+    /** 出库数量 */
+    public void setOutQuantity(Double outQuantity){
+        this.outQuantity = outQuantity;
     }
     /** 批次 */
     public String getBatch(){

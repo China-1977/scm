@@ -1,10 +1,14 @@
 package work.onss.scm.domain;
 
+import com.vladmihalcea.hibernate.type.json.JsonStringType;
+import org.hibernate.annotations.Type;
+import org.hibernate.annotations.TypeDef;
+
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+import java.util.Set;
 
-
+@TypeDef(name = "json", typeClass = JsonStringType.class)
 @Entity(name="product")
 public class Product implements Serializable,Cloneable{
     /** 主键 */
@@ -24,9 +28,12 @@ public class Product implements Serializable,Cloneable{
     /** 单价 */
     private String price ;
     /** 状态 */
-    private String status ;
+    private boolean status ;
     /** 图片 */
-    private String pictures ;
+
+    @Type(type = "json")
+    @Column(columnDefinition = "json" )
+    private Set<String> pictures ;
 
     /** 主键 */
     public String getId(){
@@ -85,19 +92,21 @@ public class Product implements Serializable,Cloneable{
         this.price = price;
     }
     /** 状态 */
-    public String getStatus(){
+    public boolean getStatus(){
         return this.status;
     }
     /** 状态 */
-    public void setStatus(String status){
+    public void setStatus(boolean status){
         this.status = status;
     }
     /** 图片 */
-    public String getPictures(){
+    public Set<String> getPictures(){
         return this.pictures;
     }
     /** 图片 */
-    public void setPictures(String pictures){
+    public void setPictures(Set<String> pictures){
         this.pictures = pictures;
     }
+
+
 }

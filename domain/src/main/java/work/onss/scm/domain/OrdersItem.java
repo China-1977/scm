@@ -19,10 +19,10 @@ public class OrdersItem implements Serializable,Cloneable{
     private String planId ;
     /** 计划编号;年月日+存货编码 */
     private String planCode ;
-    /** 产品编号 */
-    private String productCode ;
     /** 产品ID */
     private String productId ;
+    /** 产品编号 */
+    private String productCode ;
     /** 产品名称 */
     private String productName ;
     /** 产品单价 */
@@ -33,8 +33,6 @@ public class OrdersItem implements Serializable,Cloneable{
     private Double processCost ;
     /** 订单数量 */
     private Long orderQuantity ;
-    /** 已完成数量 */
-    private Long finishedQuantity ;
     /** 已交付数量 */
     private Long deliveryQuantity ;
     /** 状态;准备 read、开始 start、暂停 suspend、完成 finish、停止 stop */
@@ -82,14 +80,6 @@ public class OrdersItem implements Serializable,Cloneable{
     public void setPlanCode(String planCode){
         this.planCode = planCode;
     }
-    /** 产品编号 */
-    public String getProductCode(){
-        return this.productCode;
-    }
-    /** 产品编号 */
-    public void setProductCode(String productCode){
-        this.productCode = productCode;
-    }
     /** 产品ID */
     public String getProductId(){
         return this.productId;
@@ -97,6 +87,14 @@ public class OrdersItem implements Serializable,Cloneable{
     /** 产品ID */
     public void setProductId(String productId){
         this.productId = productId;
+    }
+    /** 产品编号 */
+    public String getProductCode(){
+        return this.productCode;
+    }
+    /** 产品编号 */
+    public void setProductCode(String productCode){
+        this.productCode = productCode;
     }
     /** 产品名称 */
     public String getProductName(){
@@ -137,14 +135,6 @@ public class OrdersItem implements Serializable,Cloneable{
     /** 订单数量 */
     public void setOrderQuantity(Long orderQuantity){
         this.orderQuantity = orderQuantity;
-    }
-    /** 已完成数量 */
-    public Long getFinishedQuantity(){
-        return this.finishedQuantity;
-    }
-    /** 已完成数量 */
-    public void setFinishedQuantity(Long finishedQuantity){
-        this.finishedQuantity = finishedQuantity;
     }
     /** 已交付数量 */
     public Long getDeliveryQuantity(){

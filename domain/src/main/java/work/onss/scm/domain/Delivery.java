@@ -16,9 +16,9 @@ public class Delivery implements Serializable,Cloneable{
     /** 合作商名称 */
     private String merchantName ;
     /** 入库ID */
-    private String inWarehouseId ;
+    private String warehouseId ;
     /** 入库名称 */
-    private String inWarehouseName ;
+    private String warehouseName ;
     /** 计划ID */
     private String planId ;
     /** 计划编号 */
@@ -35,10 +35,14 @@ public class Delivery implements Serializable,Cloneable{
     private Double signQuantity ;
     /** 入库数量 */
     private Double inQuantity ;
-    /** 状态 */
+    /** 状态;待提交 wait_submit 已提交/接收 wait_cooperate 已接收/进行中 cooperating 已完成 finished 已拒绝 rejected */
     private String status ;
     /** 物流编号 */
     private String logisticNo ;
+    /** 创建时间 */
+    private Date createDatetime ;
+    /** 更新时间 */
+    private Date updateDatetime ;
 
     /** 主键 */
     public String getId(){
@@ -65,20 +69,20 @@ public class Delivery implements Serializable,Cloneable{
         this.merchantName = merchantName;
     }
     /** 入库ID */
-    public String getInWarehouseId(){
-        return this.inWarehouseId;
+    public String getWarehouseId(){
+        return this.warehouseId;
     }
     /** 入库ID */
-    public void setInWarehouseId(String inWarehouseId){
-        this.inWarehouseId = inWarehouseId;
+    public void setWarehouseId(String warehouseId){
+        this.warehouseId = warehouseId;
     }
     /** 入库名称 */
-    public String getInWarehouseName(){
-        return this.inWarehouseName;
+    public String getWarehouseName(){
+        return this.warehouseName;
     }
     /** 入库名称 */
-    public void setInWarehouseName(String inWarehouseName){
-        this.inWarehouseName = inWarehouseName;
+    public void setWarehouseName(String warehouseName){
+        this.warehouseName = warehouseName;
     }
     /** 计划ID */
     public String getPlanId(){
@@ -144,11 +148,11 @@ public class Delivery implements Serializable,Cloneable{
     public void setInQuantity(Double inQuantity){
         this.inQuantity = inQuantity;
     }
-    /** 状态 */
+    /** 状态;待提交 wait_submit 已提交/接收 wait_cooperate 已接收/进行中 cooperating 已完成 finished 已拒绝 rejected */
     public String getStatus(){
         return this.status;
     }
-    /** 状态 */
+    /** 状态;待提交 wait_submit 已提交/接收 wait_cooperate 已接收/进行中 cooperating 已完成 finished 已拒绝 rejected */
     public void setStatus(String status){
         this.status = status;
     }
@@ -159,5 +163,21 @@ public class Delivery implements Serializable,Cloneable{
     /** 物流编号 */
     public void setLogisticNo(String logisticNo){
         this.logisticNo = logisticNo;
+    }
+    /** 创建时间 */
+    public Date getCreateDatetime(){
+        return this.createDatetime;
+    }
+    /** 创建时间 */
+    public void setCreateDatetime(Date createDatetime){
+        this.createDatetime = createDatetime;
+    }
+    /** 更新时间 */
+    public Date getUpdateDatetime(){
+        return this.updateDatetime;
+    }
+    /** 更新时间 */
+    public void setUpdateDatetime(Date updateDatetime){
+        this.updateDatetime = updateDatetime;
     }
 }

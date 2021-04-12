@@ -20,7 +20,9 @@ public class Orders implements Serializable,Cloneable{
     /** 状态;待提交 wait_submit 已提交/待接收 wait_cooperate 已接收/进行中 cooperating  已完成 finished 已拒绝 rejected */
     private String status ;
     /** 更新时间 */
-    private Date upateDatetime ;
+    private Date updateDatetime ;
+    /** 创建时间 */
+    private Date createDatetime ;
 
     /** 主键 */
     public String getId(){
@@ -63,11 +65,19 @@ public class Orders implements Serializable,Cloneable{
         this.status = status;
     }
     /** 更新时间 */
-    public Date getUpateDatetime(){
-        return this.upateDatetime;
+    public Date getUpdateDatetime(){
+        return this.updateDatetime;
     }
     /** 更新时间 */
-    public void setUpateDatetime(Date upateDatetime){
-        this.upateDatetime = upateDatetime;
+    public void setUpdateDatetime(Date updateDatetime){
+        this.updateDatetime = updateDatetime;
+    }
+    /** 创建时间 */
+    public Date getCreateDatetime(){
+        return this.createDatetime;
+    }
+    /** 创建时间 */
+    public void setCreateDatetime(Date createDatetime){
+        this.createDatetime = createDatetime;
     }
 }

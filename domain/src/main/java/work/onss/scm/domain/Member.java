@@ -11,8 +11,6 @@ public class Member implements Serializable,Cloneable{
     @Id
     @GeneratedValue
     private String id ;
-    /** 合作商ID */
-    private String merchantId ;
     /** 手机号 */
     private String phone ;
     /** 姓名 */
@@ -23,8 +21,10 @@ public class Member implements Serializable,Cloneable{
     private String cardNumber ;
     /** 身份证照片 */
     private String cardCopy ;
-    /** 状态 */
-    private String status ;
+    /** 创建时间 */
+    private Date createDatetime ;
+    /** 更新时间 */
+    private Date updateDatetime ;
 
     /** 主键 */
     public String getId(){
@@ -33,14 +33,6 @@ public class Member implements Serializable,Cloneable{
     /** 主键 */
     public void setId(String id){
         this.id = id;
-    }
-    /** 合作商ID */
-    public String getMerchantId(){
-        return this.merchantId;
-    }
-    /** 合作商ID */
-    public void setMerchantId(String merchantId){
-        this.merchantId = merchantId;
     }
     /** 手机号 */
     public String getPhone(){
@@ -82,12 +74,20 @@ public class Member implements Serializable,Cloneable{
     public void setCardCopy(String cardCopy){
         this.cardCopy = cardCopy;
     }
-    /** 状态 */
-    public String getStatus(){
-        return this.status;
+    /** 创建时间 */
+    public Date getCreateDatetime(){
+        return this.createDatetime;
     }
-    /** 状态 */
-    public void setStatus(String status){
-        this.status = status;
+    /** 创建时间 */
+    public void setCreateDatetime(Date createDatetime){
+        this.createDatetime = createDatetime;
+    }
+    /** 更新时间 */
+    public Date getUpdateDatetime(){
+        return this.updateDatetime;
+    }
+    /** 更新时间 */
+    public void setUpdateDatetime(Date updateDatetime){
+        this.updateDatetime = updateDatetime;
     }
 }

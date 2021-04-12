@@ -13,12 +13,12 @@ public class Plan implements Serializable,Cloneable{
     private String id ;
     /** 计划编号;年月日+存货编码 */
     private String planCode ;
+    /** 产品ID */
+    private String productId ;
     /** 产品编号 */
     private String productCode ;
     /** 产品名称 */
     private String productName ;
-    /** 产品ID */
-    private String productId ;
     /** 类型;采购 purchase、生产 produce、委外 outsource */
     private String type ;
     /** 开始时间 */
@@ -35,6 +35,8 @@ public class Plan implements Serializable,Cloneable{
     private Long completedQuantity ;
     /** 更新时间 */
     private Date upateDatetime ;
+    /** 创建时间 */
+    private Date crateDatetime ;
 
     /** 主键 */
     public String getId(){
@@ -52,6 +54,14 @@ public class Plan implements Serializable,Cloneable{
     public void setPlanCode(String planCode){
         this.planCode = planCode;
     }
+    /** 产品ID */
+    public String getProductId(){
+        return this.productId;
+    }
+    /** 产品ID */
+    public void setProductId(String productId){
+        this.productId = productId;
+    }
     /** 产品编号 */
     public String getProductCode(){
         return this.productCode;
@@ -67,14 +77,6 @@ public class Plan implements Serializable,Cloneable{
     /** 产品名称 */
     public void setProductName(String productName){
         this.productName = productName;
-    }
-    /** 产品ID */
-    public String getProductId(){
-        return this.productId;
-    }
-    /** 产品ID */
-    public void setProductId(String productId){
-        this.productId = productId;
     }
     /** 类型;采购 purchase、生产 produce、委外 outsource */
     public String getType(){
@@ -139,5 +141,13 @@ public class Plan implements Serializable,Cloneable{
     /** 更新时间 */
     public void setUpateDatetime(Date upateDatetime){
         this.upateDatetime = upateDatetime;
+    }
+    /** 创建时间 */
+    public Date getCrateDatetime(){
+        return this.crateDatetime;
+    }
+    /** 创建时间 */
+    public void setCrateDatetime(Date crateDatetime){
+        this.crateDatetime = crateDatetime;
     }
 }
