@@ -5,8 +5,8 @@ import java.io.Serializable;
 import java.util.Date;
 
 
-@Entity(name="order")
-public class Order implements Serializable,Cloneable{
+@Entity(name="orders")
+public class Orders implements Serializable,Cloneable{
     /** 主键 */
     @Id
     @GeneratedValue
