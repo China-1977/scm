@@ -7,7 +7,8 @@ import lombok.Getter;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDateTime;
+
 
 
 @Data
@@ -46,9 +47,9 @@ public class Delivery implements Serializable,Cloneable{
     /** 物流编号 */
     private String logisticNo ;
     /** 创建时间 */
-    private Date createDatetime ;
+    private LocalDateTime createDatetime ;
     /** 更新时间 */
-    private Date updateDatetime ;
+    private LocalDateTime updateDatetime ;
 
     @Getter
     @AllArgsConstructor

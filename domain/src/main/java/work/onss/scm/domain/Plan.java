@@ -7,7 +7,9 @@ import lombok.Getter;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 
 @Data
 @Entity(name="plan")
@@ -27,9 +29,9 @@ public class Plan implements Serializable,Cloneable{
     /** 类型;采购 purchase、生产 produce、委外 outsource */
     private TypeEnum type ;
     /** 开始时间 */
-    private Date startDate ;
+    private LocalDate startDate ;
     /** 截止时间 */
-    private Date endDate ;
+    private LocalDate endDate ;
     /** 状态;准备 read、开始 start、暂停 suspend、完成 finish、停止 stop */
     private StatusEnum status ;
     /** 计划数量 */
@@ -39,9 +41,9 @@ public class Plan implements Serializable,Cloneable{
     /** 已完成数量 */
     private BigDecimal completedQuantity ;
     /** 更新时间 */
-    private Date upateDatetime ;
+    private LocalDateTime upateDatetime ;
     /** 创建时间 */
-    private Date crateDatetime ;
+    private LocalDateTime crateDatetime ;
 
     @Getter
     @AllArgsConstructor

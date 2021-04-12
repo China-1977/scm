@@ -7,7 +7,8 @@ import lombok.Getter;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDateTime;
+
 
 @Data
 @Entity(name="orders_item")
@@ -43,7 +44,7 @@ public class OrdersItem implements Serializable,Cloneable{
     /** 状态;准备 read、开始 start、暂停 suspend、完成 finish、停止 stop */
     private StatusEnum status ;
     /** 交付日期 */
-    private Date dueDatetime ;
+    private LocalDateTime dueDatetime ;
 
     @Getter
     @AllArgsConstructor

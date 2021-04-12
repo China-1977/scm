@@ -6,7 +6,8 @@ import lombok.Getter;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
+
 
 @Data
 @Entity(name="merchant")
@@ -40,9 +41,9 @@ public class Merchant implements Serializable,Cloneable{
     /** 状态;编辑中 EDITTING 审核中 AUDITING 已驳回 REJECTED 已完成 FINISHED 已作废 CANCELED */
     private StatusEnum status ;
     /** 创建时间 */
-    private Date createDatetime ;
+    private LocalDateTime createDatetime ;
     /** 更新时间 */
-    private Date updateDatetime ;
+    private LocalDateTime updateDatetime ;
 
     @Getter
     @AllArgsConstructor
