@@ -8,7 +8,7 @@ CREATE TABLE plan(
     type VARCHAR(32) NOT NULL   COMMENT '类型 采购 purchase、生产 produce、委外 outsource' ,
     start_date DATE NOT NULL   COMMENT '开始时间' ,
     end_date DATE NOT NULL   COMMENT '截止时间' ,
-    status VARCHAR(32)   DEFAULT READ COMMENT '状态 准备 READ、开始 START、暂停 SUSPEND、完成 FINISH、停止 STOP' ,
+    status VARCHAR(32)   DEFAULT 'READ' COMMENT '状态 准备 READ、开始 START、暂停 SUSPEND、完成 FINISH、停止 STOP' ,
     plan_quantity BIGINT NOT NULL   COMMENT '计划数量' ,
     allocated_quantity BIGINT   DEFAULT 0 COMMENT '已分配数量' ,
     completed_quantity BIGINT   DEFAULT 0 COMMENT '已完成数量' ,
@@ -24,7 +24,7 @@ CREATE TABLE orders(
     merchant_id VARCHAR(32) NOT NULL   COMMENT '合作商ID' ,
     merchant_name VARCHAR(32) NOT NULL   COMMENT '合作商名称' ,
     sign_datetime DATETIME    COMMENT '签约时间' ,
-    status VARCHAR(32)   DEFAULT WAIT_SUBMIT COMMENT '状态 待提交 WAIT_SUBMIT 已提交/待接收 WAIT_COOPERATE 已接收/进行中 COOPERATING  已完成 FINISHED 已拒绝 REJECTED' ,
+    status VARCHAR(32)   DEFAULT 'WAIT_SUBMIT' COMMENT '状态 待提交 WAIT_SUBMIT 已提交/待接收 WAIT_COOPERATE 已接收/进行中 COOPERATING  已完成 FINISHED 已拒绝 REJECTED' ,
     update_datetime DATETIME NOT NULL   COMMENT '更新时间' ,
     create_datetime DATETIME NOT NULL   COMMENT '创建时间' ,
     PRIMARY KEY (id)
@@ -46,7 +46,7 @@ CREATE TABLE orders_item(
     process_cost DECIMAL(32,8) NOT NULL   COMMENT '加工费' ,
     order_quantity BIGINT NOT NULL   COMMENT '订单数量' ,
     delivery_quantity BIGINT   DEFAULT 0 COMMENT '已交付数量' ,
-    status VARCHAR(32)   DEFAULT READ COMMENT '状态 准备 READ、开始 START、暂停 SUSPEND、完成 FINISH、停止 STOP' ,
+    status VARCHAR(32)   DEFAULT 'READ' COMMENT '状态 准备 READ、开始 START、暂停 SUSPEND、完成 FINISH、停止 STOP' ,
     due_datetime DATETIME NOT NULL   COMMENT '交付日期' ,
     PRIMARY KEY (id)
 ) COMMENT = '订单明细';
@@ -66,7 +66,7 @@ CREATE TABLE merchant(
     member_phone VARCHAR(32) NOT NULL   COMMENT '联系电话' ,
     type VARCHAR(32) NOT NULL   COMMENT '类型 采购 purchase、生产 produce、委外 outsource' ,
     grade INT   DEFAULT 0 COMMENT '等级' ,
-    status VARCHAR(32)   DEFAULT EDITTING COMMENT '状态 编辑中 EDITTING 审核中 AUDITING 已驳回 REJECTED 已完成 FINISHED 已作废 CANCELED' ,
+    status VARCHAR(32)   DEFAULT 'EDITTING' COMMENT '状态 编辑中 EDITTING 审核中 AUDITING 已驳回 REJECTED 已完成 FINISHED 已作废 CANCELED' ,
     create_datetime DATETIME NOT NULL   COMMENT '创建时间' ,
     update_datetime DATETIME NOT NULL   COMMENT '更新时间' ,
     PRIMARY KEY (id)
@@ -105,7 +105,7 @@ CREATE TABLE stock(
     merchant_name VARCHAR(32) NOT NULL   COMMENT '合作商名称' ,
     warehouse_id VARCHAR(32) NOT NULL   COMMENT '仓库ID' ,
     warehouse_name VARCHAR(32) NOT NULL   COMMENT '仓库名称' ,
-    stock_quantity BIGINT NOT NULL   COMMENT '库存剩余量' ,
+    stock_quantity DECIMAL(32,8) NOT NULL   COMMENT '库存剩余量' ,
     batch VARCHAR(32) NOT NULL   COMMENT '批次' ,
     PRIMARY KEY (id)
 ) COMMENT = '库存';
@@ -123,7 +123,7 @@ CREATE TABLE stock_change(
     merchant_name VARCHAR(32) NOT NULL   COMMENT '合作商名称' ,
     warehouse_id VARCHAR(32) NOT NULL   COMMENT '仓库ID' ,
     warehouse_name VARCHAR(32) NOT NULL   COMMENT '仓库名称' ,
-    stock_quantity BIGINT NOT NULL   COMMENT '出入库之前的剩余量' ,
+    stock_quantity DECIMAL(32,8) NOT NULL   COMMENT '出入库之前的剩余量' ,
     in_quantity DECIMAL(32,8) NOT NULL   COMMENT '入库数量' ,
     out_quantity DECIMAL(32,8) NOT NULL   COMMENT '出库数量' ,
     batch VARCHAR(32) NOT NULL   COMMENT '批次' ,
@@ -140,8 +140,8 @@ CREATE TABLE product(
     unit VARCHAR(32) NOT NULL   COMMENT '单位' ,
     type VARCHAR(32) NOT NULL   COMMENT '类型' ,
     price DECIMAL(32,8) NOT NULL   COMMENT '单价' ,
-    status BIT(1) NOT NULL   COMMENT '状态' ,
-    pictures JSON   DEFAULT [] COMMENT '图片' ,
+    status VARCHAR(1) NOT NULL   COMMENT '状态' ,
+    pictures JSON   DEFAULT '[]' COMMENT '图片' ,
     PRIMARY KEY (id)
 ) COMMENT = '产品';
 
