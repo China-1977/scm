@@ -37,10 +37,13 @@ public class Delivery implements Serializable,Cloneable{
     /** 产品名称 */
     private String productName ;
     /** 通知数量 */
+    @Column(columnDefinition = "DECIMAL(32,8) NOT NULL   COMMENT '通知数量'")
     private BigDecimal deliveryQuantity ;
     /** 签收数量 */
+    @Column(columnDefinition = "DECIMAL(32,8) NOT NULL   COMMENT '签收数量'")
     private BigDecimal signQuantity ;
     /** 入库数量 */
+    @Column(columnDefinition = "DECIMAL(32,8) NOT NULL   COMMENT '入库数量'")
     private BigDecimal inQuantity ;
     /** 状态;待提交 wait_submit 已提交/接收 wait_cooperate 已接收/进行中 cooperating 已完成 finished 已拒绝 rejected */
     private StatusEnum status ;
