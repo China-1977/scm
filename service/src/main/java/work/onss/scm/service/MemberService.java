@@ -4,5 +4,5 @@ import work.onss.scm.domain.Member;
 
 public interface MemberService {
 
-    void addMember(Member member);
+    void create(Member member);
 }
