@@ -8,4 +8,6 @@ public interface MemberService {
     void create(Member member);
 
     Member login(String phone, String password) throws ServiceException;
+
+    void delete(String id);
 }
