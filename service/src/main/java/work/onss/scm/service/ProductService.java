@@ -16,4 +16,6 @@ public interface ProductService {
      * @return 产品信息
      */
     Product findProductByCode(String code);
+
+    void insert(Product product);
 }

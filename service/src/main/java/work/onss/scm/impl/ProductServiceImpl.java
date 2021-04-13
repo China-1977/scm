@@ -18,4 +18,9 @@ public class ProductServiceImpl implements ProductService {
     public Product findProductByCode(String code) {
         return null;
     }
+
+    @Override
+    public void insert(Product product) {
+
+    }
 }
