@@ -33,7 +33,7 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public void delete(String id) {
+    public void delete(Long id) {
         memberRepository.deleteById(id);
     }
 }

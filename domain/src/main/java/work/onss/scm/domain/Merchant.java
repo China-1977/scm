@@ -15,7 +15,7 @@ public class Merchant implements Serializable,Cloneable{
     /** 主键 */
     @Id
     @GeneratedValue
-    private String id ;
+    private Long id ;
     /** 合作商编号 */
     private String code ;
     /** 合作商名称 */

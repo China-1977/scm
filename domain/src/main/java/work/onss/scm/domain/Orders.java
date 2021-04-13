@@ -15,7 +15,7 @@ public class Orders implements Serializable,Cloneable{
     /** 主键 */
     @Id
     @GeneratedValue
-    private String id ;
+    private Long id ;
     /** 合作商ID */
     private String merchantId ;
     /** 合作商名称 */

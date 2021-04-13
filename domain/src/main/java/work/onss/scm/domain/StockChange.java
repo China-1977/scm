@@ -12,7 +12,7 @@ public class StockChange implements Serializable,Cloneable{
     /** 主键 */
     @Id
     @GeneratedValue
-    private String id ;
+    private Long id ;
     /** 产品ID */
     private String productId ;
     /** 产品名称 */

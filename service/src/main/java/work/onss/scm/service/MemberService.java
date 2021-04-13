@@ -9,5 +9,5 @@ public interface MemberService {
 
     Member login(String phone, String password) throws ServiceException;
 
-    void delete(String id);
+    void delete(Long id);
 }
