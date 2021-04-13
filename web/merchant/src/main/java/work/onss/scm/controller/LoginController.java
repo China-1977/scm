@@ -4,6 +4,8 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTCreator;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.google.gson.Gson;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +27,7 @@ import java.util.Map;
 
 @Log4j2
 @RestController
+@Api("登录")
 public class LoginController {
 
     @Autowired
@@ -37,6 +40,7 @@ public class LoginController {
      * @param member 微信登陆信息
      * @return 密钥
      */
+    @ApiOperation("login")
     @Transactional
     @PostMapping(value = {"/login"})
     public ResponseEntity<Work<Map<String, Object>>> wxLogin(@RequestBody Member member) throws Exception {
