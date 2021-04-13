@@ -1,10 +1,10 @@
-import request from '@/utils/request';
+import request  from 'umi-request';
+import { notification } from 'antd';
 
-export async function fakeAccountLogin(params) {
-  return request('/api/login/account', {
-    method: 'POST',
-    data: params,
-  });
+export async function login(params) {
+  request.post("/merchant/login",{data:params}).then((res)=>{
+    console.log(res);
+  })
 }
 export async function getFakeCaptcha(mobile) {
   return request(`/api/login/captcha?mobile=${mobile}`);
