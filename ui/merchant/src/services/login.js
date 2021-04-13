@@ -2,7 +2,8 @@ import request  from 'umi-request';
 import { notification } from 'antd';
 
 export async function login(params) {
-  request.post("/merchant/login",{data:params}).then((res)=>{
+  console.log(params)
+  return request.post("/merchant/login",{data:params}).then((res)=>{
     console.log(res);
   })
 }
