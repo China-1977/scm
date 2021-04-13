@@ -1,0 +1,16 @@
+server:
+  port: 8901
+  servlet:
+    context-path: /merchant
+spring:
+  application:
+    name: merchant
+  profiles:
+    active: develop
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.mysql.cj.jdbc.MysqlDataSource
+  jpa:
+    database: mysql
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL5Dialect

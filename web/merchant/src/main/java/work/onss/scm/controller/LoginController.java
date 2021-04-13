@@ -38,7 +38,7 @@ public class LoginController {
      * @return 密钥
      */
     @Transactional
-    @PostMapping(value = {"login"})
+    @PostMapping(value = {"/login"})
     public ResponseEntity<Work<Map<String, Object>>> wxLogin(@RequestBody Member member) throws Exception {
         member = memberService.login(member.getPhone(), member.getPassword());
         Map<String, Object> result = new HashMap<>();
