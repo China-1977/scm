@@ -1,7 +1,6 @@
 import { stringify } from 'querystring';
 import { history } from 'umi';
 import { login } from '@/services/login';
-import { setAuthority } from '@/utils/authority';
 import { getPageQuery } from '@/utils/utils';
 import { message } from 'antd';
 
@@ -15,10 +14,10 @@ const Model = {
       const response = yield call(login, payload);
       yield put({
         type: 'changeLoginStatus',
-        payload: response,
-      }); // Login successfully
+        payload: response.content,
+      });
 
-      if (response.status === 'ok') {
+      if (response.code === 'SUCCESS') {
         const urlParams = new URL(window.location.href);
         const params = getPageQuery();
         message.success('🎉 🎉 🎉  登录成功！');
@@ -58,7 +57,8 @@ const Model = {
   },
   reducers: {
     changeLoginStatus(state, { payload }) {
-      setAuthority(payload.currentAuthority);
+      localStorage.setItem("authorization",payload.authorization)
+      localStorage.setItem("info",JSON.stringify(payload.info))
       return { ...state, status: payload.status, type: payload.type };
     },
   },
