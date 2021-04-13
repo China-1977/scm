@@ -20,7 +20,7 @@ public class Info {
     /**
      * 营业员ID
      */
-    private String memberId;
+    private Long memberId;
     /**
      * 商户ID
      */
@@ -30,12 +30,12 @@ public class Info {
      */
     private LocalDateTime lastTime;
 
-    public Info(String memberId,  LocalDateTime lastTime) {
+    public Info(Long memberId,  LocalDateTime lastTime) {
         this.memberId = memberId;
         this.lastTime = lastTime;
     }
 
-    public Info(String cid,  String memberId, LocalDateTime lastTime) {
+    public Info(String cid,  Long memberId, LocalDateTime lastTime) {
         this.memberId = memberId;
         this.merchantId = merchantId;
         this.lastTime = lastTime;

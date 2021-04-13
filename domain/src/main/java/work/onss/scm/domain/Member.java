@@ -13,7 +13,7 @@ public class Member implements Serializable,Cloneable{
     /** 主键 */
     @Id
     @GeneratedValue
-    private String id ;
+    private Long id ;
     /** 手机号 */
     private String phone ;
     /** 密码 */

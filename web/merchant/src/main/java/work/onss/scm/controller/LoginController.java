@@ -39,7 +39,7 @@ public class LoginController {
      */
     @Transactional
     @PostMapping(value = {"/login"})
-    public ResponseEntity<Work<Map<String, Object>>> wxLogin(@RequestBody Member member) throws Exception {
+    public Work<Map<String, Object>> wxLogin(@RequestBody Member member) throws Exception {
         member = memberService.login(member.getPhone(), member.getPassword());
         Map<String, Object> result = new HashMap<>();
         LocalDateTime now = LocalDateTime.now();
@@ -54,11 +54,11 @@ public class LoginController {
         Gson gson = new Gson();
         String authorization = jwt
                 .withSubject(gson.toJson(info))
-                .withJWTId(member.getId())
+                .withJWTId(member.getId().toString())
                 .sign(algorithm);
         result.put("authorization", authorization);
         result.put("info", info);
-        return ResponseEntity.ok(Work.success(result));
+        return Work.success(result);
     }
 }
 

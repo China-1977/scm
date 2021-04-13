@@ -18,6 +18,8 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public void create(Member member) {
+        String password = encoding.encode(member.getPassword());
+        member.setPassword(password);
         memberRepository.save(member);
     }
 
