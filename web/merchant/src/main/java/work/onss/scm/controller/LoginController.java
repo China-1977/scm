@@ -21,9 +21,7 @@ import work.onss.scm.vo.Work;
 
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @Log4j2
 @RestController
@@ -41,9 +39,8 @@ public class LoginController {
      * @return 密钥
      */
     @ApiOperation("login")
-    @Transactional
     @PostMapping(value = {"/login"})
-    public Work<Map<String, Object>> wxLogin(@RequestBody Member member) throws Exception {
+    public Map<String, Object> wxLogin( Member member) throws Exception {
         member = memberService.login(member.getPhone(), member.getPassword());
         Map<String, Object> result = new HashMap<>();
         LocalDateTime now = LocalDateTime.now();
@@ -60,9 +57,25 @@ public class LoginController {
                 .withSubject(gson.toJson(info))
                 .withJWTId(member.getId().toString())
                 .sign(algorithm);
-        result.put("authorization", authorization);
-        result.put("info", info);
-        return Work.success(result);
+        try{
+            List<String> list = new ArrayList();
+            list.add("*");
+            result.put("status", "ok");
+            result.put("currentAuthority",list);
+            result.put("sessionKey", authorization);
+            result.put("info", info);
+        }catch (Exception e){
+            result.put("status", "error");
+            result.put("reason", e.getClass().getSimpleName());
+            result.put("currentAuthority", "-");
+        }
+        return result;
+
+    }
+
+    @PostMapping("/logout")
+    public Work<Map<String, Object>> logout(){
+        return Work.success();
     }
 }
 

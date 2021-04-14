@@ -6,6 +6,12 @@ export async function login(params) {
     data: params,
   });
 }
-export async function getFakeCaptcha(mobile) {
-  return request(`/api/login/captcha?mobile=${mobile}`);
+export async function accountLogout() {
+  return request('/merchant/logout', {
+    method: 'POST',
+  });
+}
+
+export async function getFakeCaptcha() {
+  return null;
 }

@@ -21,8 +21,7 @@ const GlobalHeaderRight = (props) => {
 
   return (
     <div className={className}>
-      <NoticeIconView />
-      <Avatar menu />
+      <Avatar />
       {REACT_APP_ENV && (
         <span>
           <Tag color={ENVTagColor[REACT_APP_ENV]}>{REACT_APP_ENV}</Tag>

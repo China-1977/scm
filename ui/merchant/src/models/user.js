@@ -1,33 +1,44 @@
-import { queryCurrent, query as queryUsers } from '@/services/user';
+// import { getUserInfo, getCmds } from '@/services/user';
+import { getToken, setToken, removeToken } from '@/utils/token';
+import { setAuthority } from '@/utils/authority';
 
 const UserModel = {
   namespace: 'user',
   state: {
     currentUser: {},
+    cmds: [],
+    token: getToken(),
   },
   effects: {
-    *fetch(_, { call, put }) {
-      const response = yield call(queryUsers);
-      yield put({
-        type: 'save',
-        payload: response,
-      });
-    },
-
-    *fetchCurrent(_, { call, put }) {
-      const response = yield call(queryCurrent);
-      yield put({
-        type: 'saveCurrentUser',
-        payload: response,
-      });
+    *getUserInfo(_, { call, put }) {
+      // const currentUser = yield call(getUserInfo);
+      // const cmds = yield call(getCmds);
+      // yield put({
+      //   type: 'saveUserInfo',
+      //   payload: { currentUser, cmds },
+      // });
     },
   },
   reducers: {
-    saveCurrentUser(state, action) {
-      return { ...state, currentUser: action.payload || {} };
+    saveUserInfo(state, { payload }) {
+      setAuthority(payload.cmds);
+      return {
+        ...state,
+        ...payload,
+      };
     },
-
-    changeNotifyCount(
+    saveToken(state, { payload }) {
+      if (payload) {
+        setToken(payload);
+      } else {
+        removeToken();
+      }
+      return {
+        ...state,
+        token: payload,
+      };
+    },
+    /* changeNotifyCount(
       state = {
         currentUser: {},
       },
@@ -41,7 +52,7 @@ const UserModel = {
           unreadCount: action.payload.unreadCount,
         },
       };
-    },
+    }, */
   },
 };
 export default UserModel;
