@@ -10,4 +10,6 @@ public interface MemberService {
     Member login(String phone, String password) throws ServiceException;
 
     void delete(Long id);
+
+    void update(Member member);
 }
