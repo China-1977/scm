@@ -17,7 +17,7 @@ public class Plan implements Serializable,Cloneable{
     /** 主键 */
     @Id
     @GeneratedValue
-    private String id ;
+    private Long id ;
     /** 计划编号;年月日+存货编码 */
     private String planCode ;
     /** 产品ID */

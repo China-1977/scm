@@ -2,11 +2,10 @@ package work.onss.scm.domain;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import java.io.Serializable;
+import java.util.Optional;
 
 
-public interface MemberRepository extends JpaRepository<Member,String> {
+public interface MemberRepository extends JpaRepository<Member,Long> {
+
+    Optional<Member> findByPhone(String s);
 }
