@@ -20,6 +20,7 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductRepository productRepository;
 
+    @Override
     public Page<Product> page(Pageable pageable){
         return productRepository.findAll(pageable);
     }
