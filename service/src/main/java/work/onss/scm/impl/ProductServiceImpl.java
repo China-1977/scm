@@ -19,8 +19,21 @@ public class ProductServiceImpl implements ProductService {
         return null;
     }
 
+    /**
+     * 新增产品信息
+     * @param product 产品信息
+     */
     @Override
     public void insert(Product product) {
+
+    }
+
+    /**
+     * 删除产品信息
+     * @param id 产品id
+     */
+    @Override
+    public void delete(Long id) {
 
     }
 }

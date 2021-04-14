@@ -17,5 +17,15 @@ public interface ProductService {
      */
     Product findProductByCode(String code);
 
+    /**
+     * 新增产品信息
+     * @param product 产品信息
+     */
     void insert(Product product);
+
+    /**
+     * 删除产品信息
+     * @param id 产品id
+     */
+    void delete(Long id);
 }
