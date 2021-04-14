@@ -1,13 +1,22 @@
 package work.onss.scm.impl;
 
 import work.onss.scm.domain.Product;
+import work.onss.scm.domain.ProductRepository;
 import work.onss.scm.service.ProductService;
+
+import java.util.List;
 
 /**
  * @author jiangxiaojing
  * 产品信息实现
  */
 public class ProductServiceImpl implements ProductService {
+
+    private ProductRepository productRepository;
+
+    public List<Product> page(){
+        return productRepository.findAll();
+    }
 
     /**
      * 根据产品编码获取产品信息
@@ -16,7 +25,7 @@ public class ProductServiceImpl implements ProductService {
      */
     @Override
     public Product findProductByCode(String code) {
-        return null;
+        return productRepository.findByCode(code);
     }
 
     /**
@@ -25,7 +34,7 @@ public class ProductServiceImpl implements ProductService {
      */
     @Override
     public void insert(Product product) {
-
+        productRepository.save(product);
     }
 
     /**
@@ -34,6 +43,6 @@ public class ProductServiceImpl implements ProductService {
      */
     @Override
     public void delete(Long id) {
-
+        productRepository.deleteById(id);
     }
 }
