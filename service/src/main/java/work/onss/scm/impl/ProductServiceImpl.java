@@ -1,6 +1,8 @@
 package work.onss.scm.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import work.onss.scm.domain.Product;
 import work.onss.scm.domain.ProductRepository;
@@ -18,8 +20,8 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductRepository productRepository;
 
-    public List<Product> page(){
-        return productRepository.findAll();
+    public Page<Product> page(Pageable pageable){
+        return productRepository.findAll(pageable);
     }
 
     /**
