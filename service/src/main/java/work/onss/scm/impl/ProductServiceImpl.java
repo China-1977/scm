@@ -1,5 +1,7 @@
 package work.onss.scm.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import work.onss.scm.domain.Product;
 import work.onss.scm.domain.ProductRepository;
 import work.onss.scm.service.ProductService;
@@ -10,8 +12,10 @@ import java.util.List;
  * @author jiangxiaojing
  * 产品信息实现
  */
+@Service
 public class ProductServiceImpl implements ProductService {
 
+    @Autowired
     private ProductRepository productRepository;
 
     public List<Product> page(){
