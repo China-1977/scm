@@ -3,6 +3,7 @@ package work.onss.scm.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 import work.onss.scm.domain.Member;
 import work.onss.scm.domain.MemberRepository;
 import work.onss.scm.exception.ServiceException;
@@ -39,6 +40,17 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public void update(Member member) {
+        if(!StringUtils.isEmpty(member.getPassword())){
+            String password = encoding.encode(member.getPassword());
+            member.setPassword(password);
+        }
         memberRepository.save(member);
     }
+
+    @Override
+    public Member findById(Long id){
+        return memberRepository.getOne(id);
+    }
+
+
 }
