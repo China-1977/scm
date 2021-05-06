@@ -34,7 +34,7 @@ export default defineConfig({
           path: '/plans/list',
           name: '计划列表',
           icon: 'dashboard',
-          component: '@/pages/index',
+          component: '@/pages/Plan/List',
         }
       ],
     },
@@ -47,7 +47,7 @@ export default defineConfig({
           path: '/orders/list',
           name: '订单列表',
           icon: 'dashboard',
-          component: '@/pages/index',
+          component: '@/pages/Order/List',
         }
       ],
     },
@@ -60,7 +60,7 @@ export default defineConfig({
           path: '/products/list',
           name: '产品列表',
           icon: 'dashboard',
-          component: '@/pages/index',
+          component: '@/pages/Product/List',
         }
       ],
     },
@@ -73,7 +73,7 @@ export default defineConfig({
           path: '/deliveries/list',
           name: '交付列表',
           icon: 'dashboard',
-          component: '@/pages/index',
+          component: '@/pages/Delivery/List',
         }
       ],
     },
@@ -86,7 +86,7 @@ export default defineConfig({
           path: '/merchants/list',
           name: '商户列表',
           icon: 'dashboard',
-          component: '@/pages/index',
+          component: '@/pages/Merchant/List',
         }
       ],
     },
@@ -99,7 +99,7 @@ export default defineConfig({
           path: '/users/list',
           name: '用户列表',
           icon: 'dashboard',
-          component: '@/pages/index',
+          component: '@/pages/User/List',
         }
       ],
     },
