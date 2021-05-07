@@ -1,4 +1,5 @@
 import { RequestConfig } from 'umi';
+import {useRequest} from "@@/plugin-request/request";
 
 export const request: RequestConfig = {
   errorConfig: {
@@ -11,3 +12,9 @@ export const request: RequestConfig = {
     },
   },
 };
+
+export async function getInitialState() {
+  const data = await useRequest("/platform/plans");
+  console.log(data)
+  return data;
+}

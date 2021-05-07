@@ -7,7 +7,7 @@ export default defineConfig({
   antd: {},
   layout: {
     name: '供应链平台',
-    locale: true,
+    locale: false,
   },
   routes: [
     {
