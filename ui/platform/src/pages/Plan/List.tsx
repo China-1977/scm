@@ -4,24 +4,34 @@
 import React from 'react';
 import ProTable from '@ant-design/pro-table';
 import {PageHeaderWrapper} from '@ant-design/pro-layout';
-import {useRequest} from "@@/plugin-request/request";
+import {request} from "@@/plugin-request/request";
 
 const PlanList = () => {
   const columns = [
     {
-      title: '姓名',
-      dataIndex: 'name',
-      key: 'name',
+      title: '产品编号',
+      dataIndex: 'productCode',
+      key: 'productCode',
     },
     {
-      title: '年龄',
-      dataIndex: 'age',
-      key: 'age',
+      title: '产品名称',
+      dataIndex: 'productName',
+      key: 'productName',
     },
     {
-      title: '住址',
-      dataIndex: 'address',
-      key: 'address',
+      title: '类型',
+      dataIndex: 'type',
+      key: 'type',
+    },
+    {
+      title: '计划数量',
+      dataIndex: 'planQuantity',
+      key: 'planQuantity',
+    },
+    {
+      title: '状态',
+      dataIndex: 'status',
+      key: 'status',
     },
   ];
 
@@ -30,10 +40,9 @@ const PlanList = () => {
       <ProTable
         headerTitle="查询表格"
         columns={columns}
-        request={((params, sort, filter) => {
-          const {data, error, loading} = useRequest("plans");
-          return data;
-        })}
+        request={(params => request("/platform/plans", {params}).then((res) => {
+          return {data: res.content, tota: res.totalPages, success: true}
+        }))}
       />
     </PageHeaderWrapper>
   );

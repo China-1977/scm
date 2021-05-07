@@ -1,4 +1,9 @@
-system:
-  logo: 'picture/logo.png'
-  secret: '3.1415926a?'
-  file-path: home/picture/
+server:
+  port: 8902
+  servlet:
+    context-path: /platform
+spring:
+  application:
+    name: platform
+  profiles:
+    active: develop

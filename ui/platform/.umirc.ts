@@ -3,26 +3,11 @@ import {defineConfig} from 'umi';
 export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
-
   },
   antd: {},
   layout: {
     name: '供应链平台',
     locale: true,
-  },
-  qiankun: {
-    master: {
-      apps: [
-        {
-          name: 'app1', // 唯一 id
-          entry: '//localhost:7001', // html entry
-        },
-        {
-          name: 'app2', // 唯一 id
-          entry: '//localhost:7002', // html entry
-        },
-      ],
-    },
   },
   routes: [
     {
@@ -105,4 +90,15 @@ export default defineConfig({
     },
   ],
   fastRefresh: {},
+  proxy: {
+    '/platform': {
+      'target': 'http://localhost:8902/platform',
+      'changeOrigin': true,
+      'pathRewrite': { '^/platform' : '' },
+    },
+  },
+
+  request : {
+    dataField: '',
+  }
 });
