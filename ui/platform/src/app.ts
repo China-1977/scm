@@ -1,14 +1,21 @@
-import { RequestConfig } from 'umi';
+import {RequestConfig, history} from 'umi';
 import {useRequest} from "@@/plugin-request/request";
 
 export const request: RequestConfig = {
   errorConfig: {
     adaptor: (resData) => {
-      return {
-        ...resData,
-        success: resData.ok,
-        errorMessage: resData.message,
-      };
+      if (resData.code) {
+        switch (resData) {
+          case  'SESSION_EXPIRE':
+            history.push("/login");
+            break;
+          default:
+            break;
+        }
+        return {success: false, errorCode: resData.code, errorMessage: resData.message, data: resData.content}
+      } else {
+        return {success: true, data: resData};
+      }
     },
   },
 };
